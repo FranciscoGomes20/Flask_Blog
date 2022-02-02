@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="../static/flask.png" type="image/x-icon">
+
+        {% if title %}
+        <title>{{ title|capitalize }} - Blog</title>
+        {% else %}
+        <title>Welcome to Flask Blog</title>
+        {% endif %}
+    </head>
+    <body>
+        <div> 
+            {% if current_user.is_anonymous %}
+            Welcome to Flask Blog:
+            <a href="{{ url_for('loginUser') }}">Login</a>
+            {% else %}
+            Blog:
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+            <a href="{{ url_for('explore') }}">Explore</a>
+            <a href="{{ url_for('logout') }}" >Logout</a>
+            {% endif %}
+        </div>
+
+        <hr>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </body>
+</html>
