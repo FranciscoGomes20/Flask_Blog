@@ -4,6 +4,8 @@
     {% if title %}{{ title }} - Blog{% else %}<title>Welcome to Flask Blog</title>{% endif %}
 {% endblock %}
 
+{% block favicon %}<link rel="icon" type="image/png" href="{{ url_for('static', filename='flask.png') }}" />{% endblock %}
+
 {% block navbar %}
     <nav class="navbar navbar-default">
         <div class="container">
@@ -46,4 +48,9 @@
 
         {% block app_content %}{% endblock %}
     </div>
+{% endblock %}
+
+{% block script %}
+    {{ super() }}
+    {{ moment.include_moment() }}
 {% endblock %}
