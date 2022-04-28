@@ -35,10 +35,16 @@ Agora vamos criar o repositório de migração para o projeto executando o segui
 flask db init
 ```
 
+## Migração do Banco de dados
+
+Com o repositório de migração criado, é hora de criar a migração do banco de dados executando o subcomando abaixo:
+
 ```
 flask db migrate -m "users table"
 ```
 
+## Agora e só iniciar o flask
+
 ```
-flask db upgrade
+flask run
 ```
