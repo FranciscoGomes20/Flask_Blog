@@ -4,7 +4,10 @@
     {% if title %}{{ title }} - Blog{% else %}<title>Welcome to Flask Blog</title>{% endif %}
 {% endblock %}
 
-{% block favicon %}<link rel="icon" type="image/png" href="{{ url_for('static', filename='flask.png') }}" />{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='flask.png') }}" />
+{% endblock %}
 
 {% block navbar %}
     <nav class="navbar navbar-default">

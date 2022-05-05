@@ -1,4 +1,3 @@
-from ensurepip import bootstrap
 from flask import Flask
 from app.config import Config
 from flask_sqlalchemy import SQLAlchemy
