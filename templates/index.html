@@ -1,12 +1,12 @@
 {% extends 'bootstrap/base.html' %}
 
-{% block title %}
-    {% if title %}{{ title }} - Blog{% else %}<title>Welcome to Flask Blog</title>{% endif %}
-{% endblock %}
-
 {% block styles %}
     {{ super() }}
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='flask.png') }}" />
+{% endblock %}
+
+{% block title %}
+    {% if title %} {{ title }} - Blog {% else %} <title>Welcome to Flask Blog</title> {% endif %}
 {% endblock %}
 
 {% block navbar %}
@@ -53,7 +53,7 @@
     </div>
 {% endblock %}
 
-{% block script %}
+{% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
 {% endblock %}
